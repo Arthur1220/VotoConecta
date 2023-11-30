@@ -18,6 +18,22 @@ O VotoConecta é composto por dois componentes: um cliente e um servidor, e um a
 * Este componente é uma interface gráfica para os clientes de votação. Ele fornece uma experiência de usuário mais amigável e interativa, facilitando a interação dos usuários com o sistema.
 * A interface permite registrar novas chapas, votar, consultar votantes e visualizar resultados.
 
+## Como executar o software
+Verifique se você tem o Python instalado em sua máquina antes de executar o programa. Você pode baixá-lo em <https://www.python.org/downloads/>.
+
+**Passos gerais:**
+* Configuração do Ambiente:
+    Abra um terminal ou prompt de comando.
+    Navegue até o diretório onde seus arquivos estão localizados usando cd.
+* Execute o Servidor:
+    Execute o script do servidor nomeado como Servidor.py, use o seguinte comando:
+        python Servidor.py
+    **Certifique-se de que o servidor esteja configurado com o host e a porta corretos.**
+* Executar o Cliente:
+    Execute o script da interface cliente, nomeado como Cliente_Interface.py, use o seguinte comando:
+        python Cliente_Interface.py
+    **Verifique se as configurações de host e porta no cliente correspondem às do servidor.**
+
 ## Protocolo de transporte
 O protocolo de transporte do VotoConecta é o TCP.
 O protocolo de transporte TCP foi escolhido para o VotoConecta porque ele garante a entrega confiável das mensagens. Isso é importante para um software de comunicação em tempo real, pois as mensagens devem ser entregues ao destinatário sem perdas ou erros, o que garante que o servico de votacao seja confiavel e preciso com as suas informacoes.
