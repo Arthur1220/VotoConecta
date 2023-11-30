@@ -243,7 +243,7 @@ class InterfaceVotacao:
         registro_votos = self.cliente_votacao.exibir_resultados()
 
         # Verificar se há resultados antes de prosseguir
-        if not registro_votos or registro_votos.strip() == "":
+        if not registro_votos:
             messagebox.showinfo("Sem Resultados", "Ainda não há resultados para exibir.")
             return ""
         
@@ -256,7 +256,7 @@ class InterfaceVotacao:
         self.root.geometry("500x310")
         self.root.resizable(False, False)
 
-        Label(self.root, text=f"Resultado parcial: NOMEGANHADOR ganhador", font=('Calibri', 12)).place(x=125, y=15)
+        Label(self.root, text=f"Resultado parcial:", font=('Calibri', 12)).place(x=125, y=15)
 
         Button(self.root, text="Retornar", command=self.Retornar_menu, padx=55, pady=20, font=('Calibri', 12)).place(x=150, y=230)
 
@@ -284,7 +284,7 @@ class InterfaceVotacao:
         registro_votos = self.cliente_votacao.sair()
 
         # Verificar se há resultados antes de prosseguir
-        if not registro_votos or registro_votos.strip() == "":
+        if not registro_votos:
             messagebox.showinfo("Sem Resultados", "Não há resultados para exibir.")
             return
         
@@ -294,7 +294,7 @@ class InterfaceVotacao:
         self.root.geometry("500x310")
         self.root.resizable(False, False)
 
-        Label(self.root, text=f"Resultado parcial: NOMEGANHADOR ganhador", font=('Calibri', 12)).place(x=125, y=15)
+        Label(self.root, text=f"Resultado final:", font=('Calibri', 12)).place(x=125, y=15)
         
         Button(self.root, text="Fechar programa", command=self.Destruir_root, padx=55, pady=20, font=('Calibri', 12)).place(x=130, y=230)
 
@@ -317,8 +317,8 @@ class InterfaceVotacao:
         tree.column("Voto", width=50)
 
         # Adiciona as chapas e votos à Treeview
-        for nome_chapa, votos in dicionario.items():
-            tree.insert("", "end", text=nome_chapa, values=(votos,))
+        for linha in dicionario:
+            tree.insert("", "end", text=linha[0], values=linha[1])
 
         # Adicionar barra de rolagem vertical
         vsb = Scrollbar(frame, orient="vertical", command=tree.yview)

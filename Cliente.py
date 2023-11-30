@@ -56,13 +56,41 @@ class ClienteVotacaoOnline:
     def exibir_resultados(self):
         resposta = self.enviar_mensagem("RESULTADOS")
 
-        return resposta
+        resultados = resposta.split("$")
+        
+        # Remove possíveis strings vazias resultantes da separação
+        resultados = [nome.strip() for nome in resultados if nome.strip()]
+
+        # Cria uma lista a partir dos nomes dos votantes
+        resultados_final = []
+        for texto in resultados:
+             string = texto.split(":")
+             resultados_final.append([string[0], string[1]])
+
+        resultados_final.sort(key = lambda x: x[1], reverse=True)
+
+        return resultados_final
+    
     # Funcao para executar o pedido da lista com votantes, onde recebera uma string com as informacoes, que devem ser tratadas antes de enviadas para a interface, e finalizar a conexao com o servidor
     def sair(self):
         resposta = self.enviar_mensagem("SAIDA")
 
+        resultados = resposta.split("$")
+        
+        # Remove possíveis strings vazias resultantes da separação
+        resultados = [nome.strip() for nome in resultados if nome.strip()]
+
+        # Cria uma lista a partir dos nomes dos votantes
+        resultados_final = []
+        for texto in resultados:
+             string = texto.split(":")
+             resultados_final.append([string[0], string[1]])
+
+        resultados_final.sort(key = lambda x: x[1], reverse=True)
+
         self.client_socket.close()
-        return resposta
+
+        return resultados_final
 
 # Funcao de execucao de teste do programa
 if __name__ == "__main__":
