@@ -22,17 +22,19 @@ O VotoConecta é composto por dois componentes: um cliente e um servidor, e um a
 Verifique se você tem o Python instalado em sua máquina antes de executar o programa. Você pode baixá-lo em <https://www.python.org/downloads/>.
 
 **Passos gerais:**
-* Configuração do Ambiente:
-    Abra um terminal ou prompt de comando.
-    Navegue até o diretório onde seus arquivos estão localizados usando cd.
-* Execute o Servidor:
-    Execute o script do servidor nomeado como Servidor.py, use o seguinte comando:
+**Configuração do Ambiente:**
+* Abra um terminal ou prompt de comando.
+* Navegue até o diretório onde seus arquivos estão localizados usando cd.
+
+**Execute o Servidor:**
+* Execute o script do servidor nomeado como Servidor.py, use o seguinte comando:
         python Servidor.py
-    **Certifique-se de que o servidor esteja configurado com o host e a porta corretos.**
-* Executar o Cliente:
-    Execute o script da interface cliente, nomeado como Cliente_Interface.py, use o seguinte comando:
+* **Certifique-se de que o servidor esteja configurado com o host e a porta corretos.**
+
+**Executar o Cliente:**
+* Execute o script da interface cliente, nomeado como Cliente_Interface.py, use o seguinte comando:
         python Cliente_Interface.py
-    **Verifique se as configurações de host e porta no cliente correspondem às do servidor.**
+* **Verifique se as configurações de host e porta no cliente correspondem às do servidor.**
 
 ## Protocolo de transporte
 O protocolo de transporte do VotoConecta é o TCP.
