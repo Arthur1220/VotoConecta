@@ -22,8 +22,7 @@ O VotoConecta é composto por dois componentes: um cliente e um servidor, e um a
 O protocolo de transporte do VotoConecta é o TCP.
 O protocolo de transporte TCP foi escolhido para o VotoConecta porque ele garante a entrega confiável das mensagens. Isso é importante para um software de comunicação em tempo real, pois as mensagens devem ser entregues ao destinatário sem perdas ou erros, o que garante que o servico de votacao seja confiavel e preciso com as suas informacoes.
 
-Considerações adicionais:
-
+**Considerações adicionais:**
 O protocolo poderia ser aprimorado para suportar recursos adicionais, como:
 * Criptografia para proteger a privacidade das mensagens
 * Autenticação para verificar a identidade dos usuários
