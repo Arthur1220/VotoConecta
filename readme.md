@@ -61,7 +61,7 @@ O protocolo da camada de aplicação do VotoConecta possui 5 eventos principais 
 * Funcionamento: O servidor realiza os cálculos finais, determina os resultados finais da votação e pode fechar a votação para novos votos. Os resultados finais podem ser exibidos para os usuários interessados.
 
 
-`Mensagens de Erro e Tratamento de Exceções`:
+6. `Mensagens de Erro e Tratamento de Exceções`:
 * Mensagem enviada pelo cliente: mensagens incorretas ou fora do padrao esperado
 * Mensagem resposta enviada pelo servidor: `DUPLICATA_NOME`, `DUPLICATA_VALOR`, `NOME_INVALIDO` e `CHAPA_INVALIDA`
 * Descrição: Esses eventos ocorrem quando ocorrem erros durante o processo, como tentativas de votar em uma chapa inexistente ou duplicada.
@@ -95,9 +95,7 @@ Descrição: Após a votação e a apresentação dos resultados, o software pod
 Descrição: Se ocorrerem erros durante qualquer fase do processo, o software entra em um estado de erro. Ele exibe mensagens de erro apropriadas e oferecer opções para corrigir ou contornar os problemas.
 
 ## Mensagens
-O protocolo da camada de aplicação do VotoConecta usa as seguintes mensagens:
-* `MENSAGEM`
-A mensagem `MENSAGEM` é composta por um texto e um nome de usuário.
+O protocolo da camada de aplicação do VotoConecta usa mensagens padronizadas e com identificadores para se comunicar entre cliente e servidor.
 
 **Mensagens do Cliente para o Servidor:**
 * `REGISTRAR_CHAPA$nome_chapa$valor_chapa`: Solicitação para registrar uma nova chapa com o nome nome_chapa e o valor associado valor_chapa.
@@ -105,6 +103,7 @@ A mensagem `MENSAGEM` é composta por um texto e um nome de usuário.
 * `VOTANTES`: Solicitação para obter a lista de votantes registrados.
 * `RESULTADOS`: Solicitação para obter os resultados parciais da votação.
 * `SAIDA`: Solicitação para encerrar a votação e obter os resultados finais.
+
 
 **Mensagens do Servidor para o Cliente:**
 * `CHAPA_REGISTRADA`: Confirma que a chapa foi registrada com sucesso.
@@ -171,19 +170,39 @@ A mensagem `MENSAGEM` é composta por um texto e um nome de usuário.
 |                     |                                         |                        |
 +---------------------+                                         +------------------------+
 
+| Servidor  |  Operacao |Cliente   |
+| :------------: | :------------: | :------------: |
+|   |  1. Conexão estabelecida |  -> |
+|   |   |   |
+| <-  |   2. `REGISTRAR_CHAPA$nome_chapa$valor_chapa` |   |
+|   |  3. `CHAPA_REGISTRADA` ou `DUPLICATA_NOME` ou `DUPLICATA_VALOR` |  -> |
+|   |   |   |
+|  <- | 4. `VOTAR$numero_chapa$nome_votante`  |   |
+|   | 5. `VOTO_REGISTRADO` ou `CHAPA_INVALIDA` ou `NOME_INVALIDO`  |  -> |
+|   |   |   |
+| <-  |  6. `VOTANTES` |   |
+|   |  7. Lista de votantes ou lista vaiza |  -> |
+|   |   |   |
+|  <- |  8. `RESULTADOS` |   |
+|   | 9. Lista de resultados ou lista vaiza  | ->  |
+|   |   |   |
+|  <- |  10. `SAIDA` |   |
+|   | 11. Lista de resultados finais ou lista vaiza  |  -> |
+|   | 12. Conexão encerrada  |  -> |
+
 **Legenda:**
-* Estabelecimento da conexão.
-* O cliente envia uma solicitação para registrar uma chapa.
-* O servidor responde indicando se a chapa foi registrada com sucesso ou se houve um problema (duplicata de nome).
-* O cliente envia uma solicitação para votar.
-* O servidor responde indicando se o voto foi registrado com sucesso ou se houve um problema (chapa inválida).
-* O cliente solicita a lista de votantes.
-* O servidor envia a lista de votantes.
-* O cliente solicita a lista de resultados.
-* O servidor envia a lista de resultados.
-* O cliente solicita a finalização da votação.
-* O servidor envia os resultados finais.
-* Encerramento da conexão.
+1. Estabelecimento da conexão.
+2. O cliente envia uma solicitação para registrar uma chapa.
+3. O servidor responde indicando se a chapa foi registrada com sucesso ou se houve um problema (duplicata de nome).
+4. O cliente envia uma solicitação para votar.
+5. O servidor responde indicando se o voto foi registrado com sucesso ou se houve um problema (chapa inválida).
+6. O cliente solicita a lista de votantes.
+7. O servidor envia a lista de votantes.
+8. O cliente solicita a lista de resultados.
+9. O servidor envia a lista de resultados.
+10. O cliente solicita a finalização da votação.
+11. O servidor envia os resultados finais.
+12. Encerramento da conexão.
                        
 ## Requisitos mínimos de funcionamento:
 **Python:** 
