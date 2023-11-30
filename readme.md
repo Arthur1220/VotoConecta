@@ -117,6 +117,7 @@ O protocolo da camada de aplicação do VotoConecta usa mensagens padronizadas e
 * Conexão desligada e resultados mostrados!: Indica que a votação foi encerrada e os retorna os resultados finais.
 
 ## Diagrama de comunicação
+**Diagrama em desenho**
 +---------------------+                                         +------------------------+
 |                     |                                         |                        |
 |     Servidor        |                                         |       Cliente          |
@@ -170,6 +171,7 @@ O protocolo da camada de aplicação do VotoConecta usa mensagens padronizadas e
 |                     |                                         |                        |
 +---------------------+                                         +------------------------+
 
+**Diagrama em tabela**
 | Servidor  |  Operacao |Cliente   |
 | :------------: | :------------: | :------------: |
 |   |  1. Conexão estabelecida |  -> |
