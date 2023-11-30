@@ -154,7 +154,7 @@ class InterfaceVotacao:
         # Loop de confirmacao de voto, onde o usuario deve confirmar seu voto no askyesno
         while True:
             # Confirmação final
-            confirmacao = messagebox.askyesno("Confirmação", f"{NomeVotante}, voce deseja Registrar_voto na chapa {NumeroVotante}?")
+            confirmacao = messagebox.askyesno("Confirmação", f"{NomeVotante}, voce deseja registrar voto na chapa {NumeroVotante}?")
 
             # Caso o usuario confirme
             if confirmacao:
