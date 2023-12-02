@@ -1,5 +1,5 @@
 # VotoConecta
-O VotoConecta é um software distribuído que tem como propósito principal permitir a realização de uma eleição ou votação de maneira remota, onde os usuários (votantes) podem registrar seus votos em diferentes chapas a partir de clientes conectados ao servidor. O software foi desenvolvido pela dupla: **Arthur Marques Azevedo** e **Gabriela Zerbone Magno Baptista**
+O VotoConecta é um software distribuído que tem como propósito principal permitir a realização de uma eleição ou votação de maneira remota, onde os usuários (votantes) podem registrar seus votos em diferentes chapas a partir de clientes conectados ao servidor. O software foi desenvolvido pela dupla: **Arthur Marques Azevedo** e **Gabriela Zerbone Magno Baptista** 
 
 ## Funcionamento
 O VotoConecta é composto por dois componentes: um cliente e um servidor, e um arquivo de interface grafica, criado com objetivo de melhor interacao entre servidor e cliente.
