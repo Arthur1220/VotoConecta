@@ -1,22 +1,29 @@
 # VotoConecta
 O VotoConecta é um software distribuído que tem como propósito principal permitir a realização de uma eleição ou votação de maneira remota, onde os usuários (votantes) podem registrar seus votos em diferentes chapas a partir de clientes conectados ao servidor. O software foi desenvolvido pela dupla: **Arthur Marques Azevedo** e **Gabriela Zerbone Magno Baptista** 
 
-## Funcionamento
-O VotoConecta é composto por dois componentes: um cliente e um servidor, e um arquivo de interface grafica, criado com objetivo de melhor interacao entre servidor e cliente.
+## Requisitos mínimos de funcionamento:
+**Python:** 
+* O software é escrito em Python, portanto, é necessário ter o interpretador Python instalado no sistema onde o servidor e os clientes serão executados. O código e compatível com Python 3.
 
-**Servidor de Votação Online:**
-* O servidor é responsável por gerenciar as conexões com os clientes e processar as operações de votação.
-* Ele mantém uma lista de chapas e votantes, registra os votos recebidos e fornece consultas de votantes e resultados.
-* Utiliza sockets para a comunicação entre o servidor e os clientes, permitindo a transmissão de dados pela rede.
-    
-**Cliente de Votação Online:**
-* Os clientes são interfaces de usuário que permitem que os votantes interajam com o servidor.
-* Eles podem registrar novas chapas, votar em chapas existentes, consultar a lista de votantes registrados e verificar os resultados parciais da votação.
-* Cada cliente é conectado ao servidor através de sockets.
+**Bibliotecas Padrão do Python:**
+* socket: Utilizado para comunicação em rede.
+* threading: Utilizado para manipulação de threads.
+* tkinter: Utilizado para o funcionamento da interface grafica.
+* os: Utilizado para limpar o terminal (compatível com sistemas Linux e Windows).
+* datetime: Utilizado para registrar a hora de execução.
 
-**Cliente de Interface Gráfica:**
-* Este componente é uma interface gráfica para os clientes de votação. Ele fornece uma experiência de usuário mais amigável e interativa, facilitando a interação dos usuários com o sistema.
-* A interface permite registrar novas chapas, votar, consultar votantes e visualizar resultados.
+**Configurações de Rede:**
+* O servidor está configurado para escutar em um endereço IP ('127.0.0.1') e porta (12345). Isso indica que o servidor espera conexões na interface de loopback (localhost) na porta 12345. Certifique-se de que essa porta esteja disponível e não esteja bloqueada por firewalls.
+
+**Requisitos para o Correto Funcionamento:**
+**Conexão entre Servidor e Cliente:**
+* O servidor e os clientes devem ser capazes de se comunicar pela rede. Certifique-se de que não há bloqueios de firewall ou outros obstáculos impedindo a comunicação entre o servidor e os clientes.
+
+**Manutenção do Formato da Mensagem:**
+* O correto funcionamento do software depende do formato das mensagens trocadas entre o servidor e os clientes. Certifique-se de que o formato da mensagem é mantido corretamente ao adicionar novas funcionalidades ou ao modificar o código.
+
+**Execução sem Erros:**
+* Certifique-se de que não há erros no código, pois os erros podem levar a comportamentos inesperados.
 
 ## Como executar o software
 Verifique se você tem o Python instalado em sua máquina antes de executar o programa. Você pode baixá-lo em <https://www.python.org/downloads/>.
@@ -35,6 +42,23 @@ Verifique se você tem o Python instalado em sua máquina antes de executar o pr
 * Execute o script da interface cliente, nomeado como Cliente_Interface.py, use o seguinte comando:
         python Cliente_Interface.py
 * **Verifique se as configurações de host e porta no cliente correspondem às do servidor.**
+
+## Funcionamento
+O VotoConecta é composto por dois componentes: um cliente e um servidor, e um arquivo de interface grafica, criado com objetivo de melhor interacao entre servidor e cliente.
+
+**Servidor de Votação Online:**
+* O servidor é responsável por gerenciar as conexões com os clientes e processar as operações de votação.
+* Ele mantém uma lista de chapas e votantes, registra os votos recebidos e fornece consultas de votantes e resultados.
+* Utiliza sockets para a comunicação entre o servidor e os clientes, permitindo a transmissão de dados pela rede.
+    
+**Cliente de Votação Online:**
+* Os clientes são interfaces de usuário que permitem que os votantes interajam com o servidor.
+* Eles podem registrar novas chapas, votar em chapas existentes, consultar a lista de votantes registrados e verificar os resultados parciais da votação.
+* Cada cliente é conectado ao servidor através de sockets.
+
+**Cliente de Interface Gráfica:**
+* Este componente é uma interface gráfica para os clientes de votação. Ele fornece uma experiência de usuário mais amigável e interativa, facilitando a interação dos usuários com o sistema.
+* A interface permite registrar novas chapas, votar, consultar votantes e visualizar resultados.
 
 ## Protocolo de transporte
 O protocolo de transporte do VotoConecta é o TCP.
@@ -222,30 +246,6 @@ O protocolo da camada de aplicação do VotoConecta usa mensagens padronizadas e
 10. O cliente solicita a finalização da votação.
 11. O servidor envia os resultados finais.
 12. Encerramento da conexão.
-                       
-## Requisitos mínimos de funcionamento:
-**Python:** 
-* O software é escrito em Python, portanto, é necessário ter o interpretador Python instalado no sistema onde o servidor e os clientes serão executados. O código e compatível com Python 3.
-
-**Bibliotecas Padrão do Python:**
-* socket: Utilizado para comunicação em rede.
-* threading: Utilizado para manipulação de threads.
-* tkinter: Utilizado para o funcionamento da interface grafica.
-* os: Utilizado para limpar o terminal (compatível com sistemas Linux e Windows).
-* datetime: Utilizado para registrar a hora de execução.
-
-**Configurações de Rede:**
-* O servidor está configurado para escutar em um endereço IP ('127.0.0.1') e porta (12345). Isso indica que o servidor espera conexões na interface de loopback (localhost) na porta 12345. Certifique-se de que essa porta esteja disponível e não esteja bloqueada por firewalls.
-
-**Requisitos para o Correto Funcionamento:**
-**Conexão entre Servidor e Cliente:**
-* O servidor e os clientes devem ser capazes de se comunicar pela rede. Certifique-se de que não há bloqueios de firewall ou outros obstáculos impedindo a comunicação entre o servidor e os clientes.
-
-**Manutenção do Formato da Mensagem:**
-* O correto funcionamento do software depende do formato das mensagens trocadas entre o servidor e os clientes. Certifique-se de que o formato da mensagem é mantido corretamente ao adicionar novas funcionalidades ou ao modificar o código.
-
-**Execução sem Erros:**
-* Certifique-se de que não há erros no código, pois os erros podem levar a comportamentos inesperados.
 
 ## Observacoes:
 **O código foi desenvolvido na última versão LTS do Ubuntu, visando recursos disponiveis e conhecimentos previos. Contudo, é necessário atentar para possíveis desajustes na interface gráfica devido a mudanças no sistema operacional. Além disso, é crucial verificar e adaptar o código às políticas de segurança e configurações de rede específicas do Sistema Operacional utilizado, garantindo uma implementação harmoniosa e eficiente do software.**
