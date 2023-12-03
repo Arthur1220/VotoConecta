@@ -52,6 +52,7 @@ class ClienteVotacaoOnline:
             votantes.append(nome) 
 
         return votantes
+    
     # Funcao executar o pedido da lista com os resultados, onde recebera uma string com as informacoes, que devem ser tratadas antes de enviadas para a interface
     def exibir_resultados(self):
         resposta = self.enviar_mensagem("RESULTADOS")

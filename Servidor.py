@@ -146,13 +146,6 @@ class ServidorVotacaoOnline:
 
              # Retorna um indicador de que o voto foi registrado com sucesso
             return "VOTO_REGISTRADO"
-        elif nome_votante in self.votantes.values():
-            # Se o número da chapa não é válido, registra essa informação no log
-            detalhes = f"Número da Chapa: {numero_chapa}, Nome do Votante: {nome_votante}"
-            self.registrar_log("Votar - Nome Inválido", detalhes, "NOME_INVALIDO")
-
-             # Retorna um indicador de chapa inválida
-            return "NOME_INVALIDO"
         else:
             # Se o número da chapa não é válido, registra essa informação no log
             detalhes = f"Número da Chapa: {numero_chapa}, Nome do Votante: {nome_votante}"

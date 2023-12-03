@@ -80,16 +80,6 @@ class InterfaceVotacao:
 
         help_window.mainloop()
 
-    def atualizar_info(self, tree_resultados, tree_votantes):
-        # Substitua o código abaixo pelos seus métodos reais de atualização de resultados e votantes
-        # Atualiza os resultados
-        resultados_fake = {"Chapa1": 60, "Chapa2": 25, "Chapa3": 15}
-        self.atualizar_tree(tree_resultados, resultados_fake)
-
-        # Atualiza os votantes
-        votantes_fake = {"Votante1": 1, "Votante2": 2, "Votante3": 3, "Votante4": 4}
-        self.atualizar_tree(tree_votantes, votantes_fake)
-
     # Funcao para registrar uma nova chapa
     def Registrar_chapa(self):
 
@@ -147,7 +137,7 @@ class InterfaceVotacao:
             break
 
         # Definicao do nome do votante
-        NomeVotante = askstring("Votar", "Digite seu nome:")
+        NomeVotante = askstring("Votar", "Digite seu nome completo:")
         if NomeVotante is None:
                 return
 
