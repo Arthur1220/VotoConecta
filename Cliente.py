@@ -105,34 +105,3 @@ if __name__ == "__main__":
 
     # Inicializa o construtor e a Classe Cliente
     cliente_votacao = ClienteVotacaoOnline(HOST, PORT, nomeCliente)
-    
-    # Registrar algumas chapas
-    resposta_registrar_chapa_1 = cliente_votacao.registrar_chapa("Chapa 01", "1")
-    resposta_registrar_chapa_2 = cliente_votacao.registrar_chapa("Chapa 02", "2")
-
-    # Printa os retornos
-    print('1: ', resposta_registrar_chapa_1)
-    print('2: ', resposta_registrar_chapa_2)
-
-    # Votar em algumas chapas
-    resposta_votar_1 = cliente_votacao.votar("1", "Votante 1")
-    resposta_votar_2 = cliente_votacao.votar("1", "Votante 2")
-
-    # Printa os retornos
-    print('3: ', resposta_votar_1)
-    print('4: ', resposta_votar_2)
-
-    # Exibir votantes
-    votantes = cliente_votacao.consultar_votantes()
-    # Printa o retorno
-    print('5: ', votantes)
-
-    """ # Exibir resultados
-    resultados = cliente_votacao.exibir_resultados()
-    # Printa o retorno
-    print('6: ', resultados)
-
-    # Sair/Finalizar conexao
-    registro_votos = cliente_votacao.sair()
-    # Printa o retorno
-    print(f"Registro de Votos: {registro_votos}") """
