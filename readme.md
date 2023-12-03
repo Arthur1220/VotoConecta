@@ -81,7 +81,7 @@ O protocolo da camada de aplicação do VotoConecta possui 5 eventos principais 
 
 6. `Mensagens de Erro e Tratamento de Exceções`:
 * Mensagem enviada pelo cliente: mensagens incorretas ou fora do padrao esperado
-* Mensagem resposta enviada pelo servidor: `DUPLICATA_NOME`, `DUPLICATA_VALOR`, `NOME_INVALIDO` e `CHAPA_INVALIDA`
+* Mensagem resposta enviada pelo servidor: `DUPLICATA_NOME`, `DUPLICATA_VALOR` e `CHAPA_INVALIDA`
 * Descrição: Esses eventos ocorrem quando ocorrem erros durante o processo, como tentativas de votar em uma chapa inexistente ou duplicada.
 * Funcionamento: O servidor trata essas mensagens, fornecendo feedback aos clientes sobre o erro. Pode haver uma lógica específica para lidar com diferentes tipos de erros, garantindo a integridade e a validade do processo de votação.
 
@@ -129,7 +129,6 @@ O protocolo da camada de aplicação do VotoConecta usa mensagens padronizadas e
 * `DUPLICATA_VALOR`: Indica que já existe uma chapa com o mesmo valor.
 * `VOTO_REGISTRADO`: Confirma que o voto foi registrado com sucesso.
 * `CHAPA_INVALIDA`: Indica que o número da chapa fornecido não é válido.
-* `NOME_INVALIDO`: Indica que o nome do votante já foi registrado.
 * Consulta de Votantes: Retorna a lista de votantes no formato `$Votante1$Votante2$...$`.
 * Consulta de Resultados: Retorna os resultados no formato `NomeChapa (ValorChapa): Votos votos $...` ou apenas um retono vazio, que o cliente identificao como sem resultados.
 * Conexão desligada e resultados mostrados!: Indica que a votação foi encerrada e os retorna os resultados finais.
@@ -156,7 +155,7 @@ O protocolo da camada de aplicação do VotoConecta usa mensagens padronizadas e
            |   4. `VOTAR$numero_chapa$nome_votante`                          |
            |<----------------------------------------------------------------|
            |                                                                 |
-           |   5. `VOTO_REGISTRADO` ou `CHAPA_INVALIDA` ou `NOME_INVALIDO`   |
+           |   5. `VOTO_REGISTRADO` ou `CHAPA_INVALIDA`                      |
            |---------------------------------------------------------------->|
            |                                                                 |
            |                                                                 |
@@ -198,7 +197,7 @@ O protocolo da camada de aplicação do VotoConecta usa mensagens padronizadas e
 |   |  3. `CHAPA_REGISTRADA` ou `DUPLICATA_NOME` ou `DUPLICATA_VALOR` |  -> |
 |   |   |   |
 |  <- | 4. `VOTAR$numero_chapa$nome_votante`  |   |
-|   | 5. `VOTO_REGISTRADO` ou `CHAPA_INVALIDA` ou `NOME_INVALIDO`  |  -> |
+|   | 5. `VOTO_REGISTRADO` ou `CHAPA_INVALIDA`  |  -> |
 |   |   |   |
 | <-  |  6. `VOTANTES` |   |
 |   |  7. Lista de votantes ou lista vaiza |  -> |
