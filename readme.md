@@ -110,7 +110,7 @@ O protocolo da camada de aplicação do VotoConecta possui 5 eventos principais 
 * Funcionamento: O servidor trata essas mensagens, fornecendo feedback aos clientes sobre o erro. Pode haver uma lógica específica para lidar com diferentes tipos de erros, garantindo a integridade e a validade do processo de votação.
 
 ## Estados
-O protocolo da camada de aplicação do VotoConecta tem dois estados:
+O protocolo da camada de aplicação do VotoConecta tem oito estados:
 
 **Estado de Inicialização:**
 Descrição: O software está em processo de inicialização. Nesse estado, o sistema carrega configurações, estabelece conexões, e realiza outras tarefas necessárias para preparar o ambiente de votação.
