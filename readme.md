@@ -215,23 +215,18 @@ O protocolo da camada de aplicação do VotoConecta usa mensagens padronizadas e
 **Diagrama em tabela**
 | Servidor  |  Operacao |Cliente   |
 | :------------: | :------------: | :------------: |
-|   |  1. Conexão estabelecida |  -> |
-|   |   |   |
-| <-  |   2. `REGISTRAR_CHAPA$nome_chapa$valor_chapa` |   |
-|   |  3. `CHAPA_REGISTRADA` ou `DUPLICATA_NOME` ou `DUPLICATA_VALOR` |  -> |
-|   |   |   |
-|  <- | 4. `VOTAR$numero_chapa$nome_votante`  |   |
-|   | 5. `VOTO_REGISTRADO` ou `CHAPA_INVALIDA`  |  -> |
-|   |   |   |
-| <-  |  6. `VOTANTES` |   |
-|   |  7. Lista de votantes ou lista vaiza |  -> |
-|   |   |   |
-|  <- |  8. `RESULTADOS` |   |
-|   | 9. Lista de resultados ou lista vaiza  | ->  |
-|   |   |   |
-|  <- |  10. `SAIDA` |   |
-|   | 11. Lista de resultados finais ou lista vaiza  |  -> |
-|   | 12. Conexão encerrada  |  -> |
+|   |  1. Conexão estabelecida |  <- |
+| ->  |   2. `REGISTRAR_CHAPA$nome_chapa$valor_chapa` |   |
+|   |  3. `CHAPA_REGISTRADA` ou `DUPLICATA_NOME` ou `DUPLICATA_VALOR` |  <- |
+|  -> | 4. `VOTAR$numero_chapa$nome_votante`  |   |
+|   | 5. `VOTO_REGISTRADO` ou `CHAPA_INVALIDA`  |  <- |
+| ->  |  6. `VOTANTES` |   |
+|   |  7. Lista de votantes ou lista vaiza |  <- |
+|  -> |  8. `RESULTADOS` |   |
+|   | 9. Lista de resultados ou lista vaiza  | <-  |
+|  -> |  10. `SAIDA` |   |
+|   | 11. Lista de resultados finais ou lista vaiza  |  <- |
+|   | 12. Conexão encerrada  |  <- |
 
 **Legenda:**
 1. Estabelecimento da conexão.
